@@ -1,0 +1,26 @@
+COMO ENVIAR EMAILS
+    https://docs.hektorprofe.net/django/web-empresarial/enviar-emails-prueba/
+
+    https://docs.djangoproject.com/en/4.1/topics/email/
+
+EJEMPLOS DE PROYECTO
+    https://github.com/justdjango/django-ecommerce
+
+    https://github.com/justdjango/django-ecommerce
+
+DROPDOWN MENU
+    https://mdbootstrap.com/docs/standard/extended/dropdown-multilevel/#
+    https://getbootstrap.com/docs/4.0/components/dropdowns/
+
+QUERYSETS
+    https://docs.djangoproject.com/en/4.1/topics/db/queries/
+
+MODELS
+    https://stackoverflow.com/questions/59367543/django-multiple-modelstable-in-one-view
+
+DJANGO TEMPLATES
+    IF: https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#if
+
+METHOD DECORATORS
+    https://docs.djangoproject.com/en/dev/topics/class-based-views/intro/#decorating-the-class
+    

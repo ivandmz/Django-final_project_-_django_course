@@ -1,0 +1,40 @@
+- import loader en views. para que django sepa de donde traer las plantillas (lo coloqué pero creo q por defecto ya funciona sin esto)
+- revisar ruta de templates en settings (importar os)
+- herencia de templates. include (incrustar)
+- crear DB  en postgre con pgadmin. nombre 'pig22820'
+- pip install psycopg2 (ya lo habiamos hecho)
+- en settings anotar datos de DB en DATABASES:
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pig22820',
+        'USER': 'postgres', (usar ese por defecto)
+        'PASSWORD': 'root', (la pass de cada uno de su propio pgadmin)
+        'HOST': '127.0.0.1',
+        'PORT': '5432', (viene por defecto al instalar postgre)
+- ahora debería crear los modelos. Como ya están, agrego meta y __str__. con verbose en la Meta evito que el panel admin le agregue una 's'
+- makemigrations: al realizar la migracion aparecerá un numero (0001).
+- luego debo ejecutar python manage.py sqlmigrate 'nombreApp' y el numero anterior. esto 
+  sirve para ejecutar las sentencias SQL que estructuraran la DB.
+- desp migrate. (cada vez q se cambie algo en el modelo: makemigrations y migrate)
+- en model hice cambios (como valores opcionales, verbose name, etc)
+- makemigrations y migrate
+
+PANEL ADMIN
+- creamos un super user: python manage.py createsuperuser: admin 1234. en PGAdmin puedo ver el superuser en la DB > schemas > public > tables > auth_users > boton Derecho y view/edit data > all rows
+- en admin.py debo importar y registrar los modelos
+  si quiero programar que mostrar en el panel admin hago una clase en admin.py llamada igual-q-la-claseAdmin
+  dentro list_display tiene los campos q se muestran, fields el orden, search_fields los campos q me permitirá buscar y list_filter para filtrar
+
+VIEWS
+- en la view modificamos index: elimino el ejemplo fecha y traigo todos los productos en una variable.
+- para ello tengo q importar de crud_tienda.models Item y llamarlos con el ORM y lo envío como contexto
+
+HTML
+- modifico el index, copio block content de otro html y el for lo hago con productos.
+- modifico el base, agrego el block breadcrumbs que funciona si no estamos en la home o en contacto.
+ y es distinto para cada categoria o producto (falta terminar el de producto)
+- falta filters
+- block content para cada categoria ahora hereda de index
+- no puedo hacer funcionar favicon
+
+URLS
+- falta revisar y actualizar
