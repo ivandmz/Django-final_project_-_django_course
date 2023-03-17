@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Menu Vestimenta{% endblock %}
+
+{% block content %}
+<div class="table table-dark text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+    <div class="text-center">
+        <h2 class="text-light mb-5 mt-4 font-weight-bold"><strong>Menu de vestimenta</strong><a class="btn btn-success float-right" href="{% url 'Crear-vestimenta' %}">Nuevo ingreso</a></h2>
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Foto</th>
+                    <th>Info</th>
+                    <th>Subcategoria</th>
+                    <th>Genero</th>
+                    <th>Talles</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-dark">
+                {% for i in object_list %}
+                <tr>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.precio}}</td>
+                    <td><img width="100" src="{% if i.foto %}{{i.foto.url}}{% endif %}" alt="foto {{i.nombre}}"></td>
+                    <td>{{i.info}}</td>
+                    <td>
+                    {% for key, value in subcat_dict.items %} 
+                    {% if i.subcategoria == key %}
+                    {{value}}
+                    {% endif %}
+                    {% endfor %}
+                    </td>
+                    {% if i.sexo %}
+                        {% for key, value in sexo.items %} 
+                        {% if i.sexo == key %}
+                        <td>{{value}}</td>
+                        {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <td>Unisex</td>
+                    {% endif %}
+                    <td>
+                        {% for talle in talles %}
+                            {% if i.talle == talle %}
+                                <P>{{i.talle}}</P>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for s in stock %}
+                            <P>{{i.s}}</P><br>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'Actualizar-vestimenta' i.pk %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'Borrar-vestimenta' i.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

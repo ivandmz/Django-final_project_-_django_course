@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+{% for p in productos %}
+<div class="containerList">
+    <div class="items">
+        <div class="itemList">
+            <div class="item"><a href="#"><img
+                        src="{{p.foto.url}}"
+                        class="img-responsive"></a><a class="link" href="#">
+                    <h2 class="nombre">{{p.nombre}}</h2>
+                </a>
+                <h4>${Intl.NumberFormat('de-DE').format({{p.precio}})},00</h4><a href="#"><button class="btn btn-secondary">Ver
+                        Más</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+{% endblock  %}

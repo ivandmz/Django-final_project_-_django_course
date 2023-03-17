@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="itemListContainer p-4">
+  <h2 class="title">Característica del producto</h2>
+  <section>
+    <div
+      class="container mt-2 mb-5 item border border-3 border-warning rounded"
+    >
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="images p-3">
+                  <div class="text-center p-4">
+                    <img src="{{object.foto.url}}" width="250" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="product p-4">
+                  <div class="mt-4 mb-3">
+                    <span class="text-uppercase text-muted brand"
+                      >Sección: {{ object.categoria}}</span
+                    >
+                    <h5 class="text-uppercase">{{object.nombre}}</h5>
+                    <div class="price d-flex flex-row align-items-center">
+                      <span class="act-price"
+                        >Precio: ${{ object.precio|floatformat:2}}</span
+                      >
+                    </div>
+                  </div>
+                  <p class="about">{{ object.info}}</p>
+                  <hr />
+                  <section>
+                    <div class="contador container my-4 d-flex">
+                      <div>
+                        <button class="btn btn-outline-danger" disabled="">
+                          <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 16 16"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"
+                            ></path>
+                          </svg></button
+                        ><span class="mx-4 text-light">1</span
+                        ><button class="btn btn-dark">
+                          <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 16 16"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="ml-2">
+                        <button type="button" class="btn btn-light">
+                          Agregar
+                        </button>
+                      </div>
+                      
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-secondary" onClick="window.history.back();return false;"></a>VOLVER</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

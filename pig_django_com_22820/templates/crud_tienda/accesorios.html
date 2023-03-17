@@ -1,0 +1,25 @@
+{% extends 'crud_tienda/index.html' %}
+{% block title %}Accesorios{% endblock %}
+
+{% block filters %}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-expanded="false">
+        Filtros
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li>
+            <a class="dropdown-item" href="#">
+                Categoria &raquo;
+            </a>
+            <ul class="dropdown-menu dropdown-submenu">
+                {% for key, value in subcat_dict.items %}
+                <li>
+                    <a class="dropdown-item" href="{% url 'Accesorios' %}?filtro={{key}}">{{value}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endblock %}

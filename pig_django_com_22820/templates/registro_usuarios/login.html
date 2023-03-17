@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Inicio de sesión{% endblock %}
+
+{% block content %}
+<div class="col-md-9 mx-auto mb-5">
+  {% if 'register' in request.GET %}
+    <p style="color:green">Usuario registrado correctamente, ya podés loguearte</p>
+  {% endif %}
+</div>
+<form class="table table-dark" action="" method="post">
+  {% csrf_token %}
+  <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+    <div class="text-center">
+      <h2 class="text-light mb-5 mt-4 font-weight-bold"><strong>Iniciar sesión</strong></h2>
+    </div>
+    {% if form.non_field_errors %}
+    <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+    {% endif %}
+    <div class="md-form mb-5">
+      <p>
+        <input type="text" name="username" autofocus maxlength="254" required id="id_username" class="form-control" placeholder="Nombre de usuario" />
+      </p>
+      <p>
+        <input type="password" name="password" required id="id_password" class="form-control" placeholder="Contraseña" />
+      </p>
+    </div>
+    <div class="row d-flex align-items-center">
+      <div class="text-center mb-3 col-md-12">
+        <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 waves-effect waves-light">Acceder</button>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="rgba-stylish-strong py-5 px-5 z-depth-2">
+  <div class="text-center mb-3 col-md-12">
+    <p>¿Olvidó su clave? Puede restaurarla <a href="{% url 'password_reset' %}">aquí</a>.</p>
+  </div>
+</div>
+{% endblock %}

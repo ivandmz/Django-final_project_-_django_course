@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Menu Suplementos{% endblock %}
+
+{% block content %}
+<div class="table table-dark text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+    <div class="text-center">
+        <h2 class="text-light mb-5 mt-4 font-weight-bold"><strong>Menu de Suplementos</strong><a class="btn btn-success float-right" href="{% url 'Crear-suplemento' %}">Nuevo ingreso</a></h2>
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Foto</th>
+                    <th>Info</th>
+                    <th>Subcategoria</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-dark">
+                {% for i in object_list %}
+                <tr>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.precio}}</td>
+                    <td><img width="100" src="{% if i.foto %}{{i.foto.url}}{% endif %}" alt="foto {{i.nombre}}"></td>
+                    <td>{{i.info}}</td>
+                    <td>
+                        {% for key, value in subcat_dict.items %} 
+                        {% if i.subcategoria == key %}
+                        {{value}}
+                        {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{i.stock}}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'Actualizar-suplemento' i.pk %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'Borrar-suplemento' i.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

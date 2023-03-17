@@ -1,0 +1,27 @@
+<header class="header" id="navBarId">
+    {% load static %}
+    {% load user_tags %}
+    <nav class="navBar">
+        <a href="{% url 'Home' %}" class="logo nav-link"><img src="{% static 'crud_tienda/img/logo.png' %}" height="70"></img></a></li>
+        <button class="nav-toggle" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-menu">
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links {% if 'Vestimenta' in request.resolver_match.url_name %}nav-menu-links_active{% endif %}" href="{% url 'Vestimenta' %}">VESTIMENTA</a></li>
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links {% if 'Calzado' in request.resolver_match.url_name %}nav-menu-links_active{% endif %}" href="{% url 'Calzado' %}">CALZADO</a></li>
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links {% if 'Accesorios' in request.resolver_match.url_name %}nav-menu-links_active{% endif %}" href="{% url 'Accesorios' %}">ACCESORIOS</a></li>
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links {% if 'Suplementos' in request.resolver_match.url_name %}nav-menu-links_active{% endif %}" href="{% url 'Suplementos' %}">SUPLEMENTOS</a></li>
+            {% if request.user|has_group:"administrador" or request.user.is_staff %}
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links nav-menu-links_active" href="{% url 'Administrador' %}">ADMINISTRAR</a></li>
+            {% else %}
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links nav-menu-links_active" href="{% url 'Contacto' %}">CONTACTO</a></li>
+            {% endif %}
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item navbar-text"><a class="nav-menu-links btn-sm nav-links float-right my-3 mx-2" href="{% url 'login' %}">Acceder</a></li>
+            <li class="nav-item navbar-text"><a class="nav-menu-links btn-sm nav-links float-right my-3 mx-2" href="{% url 'signup' %}">Registro</a></li>
+            {% else %}
+            <li class="nav-item navbar-text"><a class="nav-menu-links btn-sm nav-links float-right my-3 mx-2" href="{% url 'logout' %}">Salir</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

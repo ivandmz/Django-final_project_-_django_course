@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Producto{% endblock %}
+
+{% block content %}
+<form class="table table-dark" method="post">
+    {% csrf_token %}
+    <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+        <div class="text-center">
+            <h2 class="text-light mb-5 mt-4 font-weight-bold"><strong>Está seguro de eliminar "{{ object }}"?</strong>
+            </h2>
+        </div>
+        <div class="md-form mb-5">
+            {{ form }}
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="text-center mb-3 col-md-12">
+                <button type="submit" class="btn btn-danger btn-block btn-rounded z-depth-1 waves-effect waves-light">Eliminar</button>
+            </div>
+            <div class="text-center mb-3 col-md-12">
+                <a class="btn btn-secondary btn-block" href="{% url 'Administrador' %}{{object.categoria}}">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

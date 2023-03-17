@@ -1,0 +1,59 @@
+    <footer class="footer">
+        {% load static %}
+        <div class="footer-row footer-row-primary">
+            <div class="footer-column">
+                <h3 class="footer-h3">DELTAESPORT</h3>
+                <p class="footer-about-p">
+                    Cuando DELTAESPORT abrió por primera vez las puertas de su sucursal en Mendoza en 2002, 
+                    probablemente no pensó que 20 años después, seguria ayudando a personas a buscar llegar a su maximo rendimiento.
+                </p>
+                <div class="footer-social">
+                    <a href="https://es-la.facebook.com/pages/category/Hospital/Hospital-Central-de-Mendoza-225764094136784/"
+                        target="_blank"><i class="fa-brands fa-facebook-square footer-social-i"></i></a>
+                    <a href="https://www.instagram.com/hospitalcentraldemendoza/" target="_blank"><i
+                            class="fa-brands fa-instagram-square footer-social-i"></i></a>
+                    <a href="https://mobile.twitter.com/HCentral_Mza/" target="_blank"><i
+                            class="fa-brands fa-twitter-square footer-social-i"></i></a>
+                    <a href="https://www.youtube.com/channel/UCy2Lujd5DeXdmFpbeGWGNzg" target="_blank"><i
+                            class="fa-brands fa-youtube-square footer-social-i"></i></a>
+                </div>
+            </div>
+            <div class="footer-column links">
+                <h3 class="footer-h3">Productos</h3>
+                <ul class="footer-ul">
+                    <li class="footer-li">
+                        <a href="{% url 'Vestimenta' %}" class="footer-ul-li-a">Vestimenta</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Calzado' %}" class="footer-ul-li-a">Calzados</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Accesorios' %}" class="footer-ul-li-a">Accesorios</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Suplementos' %}" class="footer-ul-li-a">Suplementos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-column links">
+                <h3 class="footer-h3">Información General</h3>
+                <ul class="footer-ul">
+                    <li class="footer-li" class="footer-ul-li-a">
+                        <a href="#faq" class="footer-ul-li-a">F.A.Q</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy" class="footer-ul-li-a">Política de cookies</a>
+                    </li>
+                    <li>
+                        <a href="#terminos" class="footer-ul-li-a">Términos del Servicio</a>
+                    </li>
+                    <li>
+                        <a href="#soporte" class="footer-ul-li-a">Soporte</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-row footer-copyright">
+            <p class="footer-copyright-p">Copyright &copy; Django comisión 22820- Grupo 2</p>
+        </div>
+    </footer>

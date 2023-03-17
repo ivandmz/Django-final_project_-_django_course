@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Contacto{% endblock %}
+{% block content %}
+
+<form class="table table-dark" action="{% url 'Contacto' %}" method="post">
+    {% csrf_token %}
+    <div class="card-image" style="background-image: url('https://i.pinimg.com/originals/61/2b/13/612b13db13eeb7bcd42e24631aa9cd61.jpg');">
+        <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+
+            <!--Header-->
+            <div class="text-center">
+                <h2 class="text-dark mb-5 mt-4 font-weight-bold"><strong>Contáctenos</strong></h2>
+                <p class="text-dark mb-5 mt-4">Conozca más sobre nuestras soluciones o ingrese su consulta para recibir asesoramiento de nuestro equipo de ventas</p>
+            </div>
+
+            <!--Body-->
+            <div class="md-form mb-5">
+                {{contact.as_p}}
+            </div>
+
+            <!--Grid row-->
+            <div class="row d-flex align-items-center">
+                <!--Grid column-->
+                <div class="text-center mb-3 col-md-12">
+                    <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 waves-effect waves-light">Enviar consulta</button>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+</form>
+
+
+{% comment %}
+<form class="table table-dark" action="{% url 'Contacto' %}" method="post">
+    {% csrf_token %}
+    <div class="card-image" style="background-image: url('https://i.pinimg.com/originals/61/2b/13/612b13db13eeb7bcd42e24631aa9cd61.jpg');">
+        <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+
+            <!--Header-->
+            <div class="text-center">
+                <h2 class="text-dark mb-5 mt-4 font-weight-bold"><strong>Contáctenos</strong></h2>
+                <p class="text-dark mb-5 mt-4">Conozca más sobre nuestras soluciones o ingrese su consulta para recibir asesoramiento de nuestro equipo de ventas</p>
+            </div>
+
+            <!--Body-->
+            <div class="md-form">
+                <input type="text" id="nombre" name="nombre" class="form-control white-text">
+                <label for="nombre" class="">Tu nombre</label>
+            </div>
+
+            <div class="md-form">
+                <input type="text" id="mail" name="mail" class="form-control">
+                <label for="mail" class="">Tu dirección de correo</label>
+            </div>
+
+            <div class="md-form mb-5">
+                <textarea type="text" id="mensaje" name="mensaje" rows="2" class="form-control md-textarea white-text"></textarea>
+                <label for="mensaje" class="">Tu mensaje</label>
+            </div>
+
+            <!--Grid row-->
+            <div class="row d-flex align-items-center">
+
+                <!--Grid column-->
+                <div class="text-center mb-3 col-md-12">
+                    <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 waves-effect waves-light">Enviar consulta</button>
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </div>
+    </div>
+</form>
+{% endcomment %}
+
+{% endblock  %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Crear Opciones{% endblock %}
+
+{% block content %}
+<form class="table table-dark" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+
+        <!--Header-->
+        <div class="text-center">
+            <h2 class="text-light mb-5 mt-4 font-weight-bold"><strong>Nuevo producto</strong></h2>
+            <p class="text-light mb-5 mt-4">Ingrese aquí un nuevo producto al sistema</p>
+        </div>
+
+        <!--Body-->
+        <div class="md-form mb-5">
+            {% for opciones_form in form.forms%}
+                <hr>
+                <h5>
+                    {% if opciones_form.instance.pk %}
+                        Talle: {{ opciones_form.instance.talle }}
+                        Stock: {{ opciones_form.instance.stock }}
+
+                    {% else %}
+                        {% if form.forms|length > 1 %}
+                            Agregar otro talle
+                        {% else %}
+                            Agregar talle
+                        {% endif %}
+                    {% endif %}
+                </h5>
+                {% for hidden_field in opciones_form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+                <table>
+                    {{ opciones_form.as_table }}
+                </table>
+            {% endfor %}
+        </div>
+
+        <!--Grid row-->
+        
+            <!--Grid column-->
+            <div class="text-center mb-3 col-md-12">
+                <button type="submit" value="Update Opciones" class="btn btn-success btn-block btn-rounded z-depth-1 waves-effect waves-light">Actualizar Talles</button>
+                <a href="{{ calzado.get_absolute_url }}" role="button" class="btn btn-secondary btn-block btn-rounded z-depth-1 waves-effect waves-light">Cancelar</a>
+            </div>     
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+
+{% endblock %}

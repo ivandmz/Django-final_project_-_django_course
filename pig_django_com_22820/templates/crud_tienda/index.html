@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="itemListContainer p-4">
+  <h2 class="title">Nuestro catálogo de productos</h2>
+  <section>
+    <div class="containerList">
+      <div class="items align-content-center">
+        <div class="items">
+          <div class="itemList">
+            {% for p in object_list|dictsort:"nombre" %}
+            <div class="item">
+              <a href="#"><img src="{{p.foto.url}}" class="img-responsive" /></a
+              ><a class="link" href="#">
+                <h2 class="nombre">{{p.nombre}}</h2>
+                <h2 class="nombre">{{p.categoria}}</h2>
+              </a>
+              <h4>$ {{ p.precio|floatformat:2}}</h4>
+
+              <a href="{% url p.categoria|add:'-detalle' p.id %}"><button class="btn btn-secondary">Ver Más</button></a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+ {% endblock %} 

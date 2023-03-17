@@ -1,0 +1,9 @@
+{% extends 'administrador/editar_producto.html' %}
+{% block title %}Editar Suplemento{% endblock %}
+
+{% block url %}
+    {% url 'Actualizar-suplemento' object.id %}
+{% endblock %}
+{% block url2 %}
+    {% url 'Administrar_suplementos' %}
+{% endblock %}

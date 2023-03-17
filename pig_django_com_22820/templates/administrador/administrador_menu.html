@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Menu Administrador{% endblock %}
+
+{% block content %}
+<div class="table table-dark text-white rgba-stylish-strong py-5 px-5 z-depth-2">
+    <div class="text-center">
+        <h2 class="text-light mb-5 mt-4 font-weight-bold"><strong>Menu de productos</strong></h2>
+        <ul class="nav-menu">
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links" href="{% url 'Administrar_vestimenta' %}">VESTIMENTA</a></li>
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links" href="{% url 'Administrar_calzado' %}">CALZADO</a></li>
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links" href="{% url 'Administrar_accesorios' %}">ACCESORIOS</a></li>
+            <li class="nav-menu-item"><a class="nav-menu-links nav-links" href="{% url 'Administrar_suplementos' %}">SUPLEMENTOS</a></li>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

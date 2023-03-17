@@ -1,0 +1,9 @@
+{% extends 'administrador/editar_producto.html' %}
+{% block title %}Editar Vestimenta{% endblock %}
+
+{% block url %}
+    {% url 'Actualizar-vestimenta' object.id %}
+{% endblock %}
+{% block url2 %}
+    {% url 'Administrar_vestimenta' %}
+{% endblock %}

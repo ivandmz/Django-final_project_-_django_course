@@ -1,0 +1,38 @@
+{% extends 'crud_tienda/index.html' %}
+{% block title %}Calzado{% endblock %}
+
+{% block filters %}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+      data-toggle="dropdown" aria-expanded="false">
+      Filtros
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li>
+          <a class="dropdown-item" href="#">
+            Categoria  &raquo;
+          </a>
+          <ul class="dropdown-menu dropdown-submenu">
+            {% for key,value in sexo.items %}
+            <li>
+              <a class="dropdown-item" href="{% url 'Calzado' %}?filtro={{key}}">{{value}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            Talle  &raquo;
+          </a>
+          <ul class="dropdown-menu dropdown-submenu">
+            {% for key,value in talles.items %}
+            <li>
+              <a class="dropdown-item" href="{% url 'Calzado' %}?filtro={{key}}">{{value}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+    </ul>
+  </div>
+
+{% endblock %}

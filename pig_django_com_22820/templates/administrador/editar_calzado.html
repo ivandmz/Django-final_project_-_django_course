@@ -1,0 +1,9 @@
+{% extends 'administrador/editar_producto.html' %}
+{% block title %}Editar Calzado{% endblock %}
+
+{% block url %}
+    {% url 'Actualizar-calzado' object.id %}
+{% endblock %}
+{% block url2 %}
+    {% url 'Administrar_calzado' %}
+{% endblock %}
